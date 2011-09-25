@@ -103,4 +103,17 @@ describe("Actor Factory",function(){
 			expect(counter).toEqual(2);
 		});
 	});
+
+	it("Should retrive and actor by it's id.",function(){
+		var actorFactory = new ActorFactory(Promise),
+			one = null,
+			two = null,
+			messages = {};
+
+		one = actorFactory.construct(messages,"one");
+
+		two = actorFactory.get("one");
+
+		expect(one).toEqual(two);
+	});
 });
